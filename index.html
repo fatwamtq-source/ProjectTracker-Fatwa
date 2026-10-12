@@ -1,11 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskFlow · Project Management Tracker</title>
+  <meta name="description" content="Project Management Tracker: kelola proyek, tugas harian, target mingguan dan pencapaian bulanan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <div class="app">
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar" id="sidebar" aria-label="Navigasi utama">
+      <div class="brand">
+        <div class="brand-logo"><i data-lucide="layers"></i></div>
+        <div>
+          <div class="brand-name">TaskFlow</div>
+          <div class="brand-tag">Project Management Tracker</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav-label">Menu</div>
+        <a href="#/dashboard" data-view="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+        <a href="#/tasks" data-view="tasks"><i data-lucide="list-checks"></i><span>My Tasks</span></a>
+        <a href="#/daily" data-view="daily"><i data-lucide="sun"></i><span>Daily Tracker</span></a>
+        <a href="#/weekly" data-view="weekly"><i data-lucide="calendar-range"></i><span>Weekly Tracker</span></a>
+        <a href="#/monthly" data-view="monthly"><i data-lucide="calendar-days"></i><span>Monthly Tracker</span></a>
+        <a href="#/projects" data-view="projects"><i data-lucide="folder-kanban"></i><span>Project Management</span></a>
+        <a href="#/calendar" data-view="calendar"><i data-lucide="calendar"></i><span>Calendar</span></a>
+        <a href="#/reports" data-view="reports"><i data-lucide="trending-up"></i><span>Reports &amp; Analytics</span></a>
+        <a href="#/settings" data-view="settings"><i data-lucide="settings"></i><span>Settings</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="avatar" id="avatar">U</div>
+        <div>
+          <div class="sf-name" id="sfName">Pengguna</div>
+          <div class="sf-sub">Data tersimpan di browser</div>
+        </div>
+      </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn" aria-label="Buka menu"><i data-lucide="menu"></i></button>
+        <div class="page-title">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSub"></p>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="themeBtn" aria-label="Ganti tema" title="Dark / Light mode"></button>
+          <button class="btn primary" id="quickAdd" data-action="new-task"><i data-lucide="plus"></i><span>New Task</span></button>
+        </div>
+      </header>
+
+      <section class="content" id="content" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
 </body>
 </html>
